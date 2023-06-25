@@ -6,14 +6,14 @@
 SELECT cus.firstName, cus.lastName, cus.email, sl.salesAmount, sl.soldDate
 FROM customer cus
 INNER JOIN sales sl
-  ON cus.customerId = sl.customerId;
-
+  ON cus.customerId = sl.customerId
+UNION
 SELECT cus.firstName, cus.lastName, cus.email, sl.salesAmount, sl.soldDate
 FROM customer cus
 LEFT JOIN sales sl
   ON cus.customerId = sl.customerId
-WHERE sl.salesId is NULL;
-
+WHERE sl.salesId is NULL
+UNION
 SELECT cus.firstName, cus.lastName, cus.email, sl.salesAmount, sl.soldDate
 FROM customer cus
 RIGHT JOIN sales sl
